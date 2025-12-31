@@ -32,10 +32,6 @@ jobs:
     - name: Execute Test 
       run: mvn clean test -Dsuite=SampleTest
 
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v7.0.0
-      with:
-        name: Logs
-        path: logs/
+
 
 
