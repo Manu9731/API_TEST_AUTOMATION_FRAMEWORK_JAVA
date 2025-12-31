@@ -13,6 +13,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    - cron: 25 8 * * *
 
 jobs:
   build:
@@ -29,5 +31,11 @@ jobs:
         cache: maven
     - name: Execute Test 
       run: mvn clean test -Dsuite=SampleTest
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v7.0.0
+      with:
+        name: Logs
+        path: logs/
 
 
