@@ -4,6 +4,7 @@ import com.api.base.AuthService;
 import com.api.base.UserProfileManagementService;
 import com.api.model.request.LoginRequest;
 import com.api.model.request.ProfileRequest;
+import com.api.model.request.UpdateFewInfo;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -49,6 +50,14 @@ public class UserManagement {
         Response response = userProfileManagementService.updateProfile(profileRequest, UserManagement.token);
         System.out.println(response.asPrettyString());
         Assert.assertEquals(response.statusCode(), 200);
+    }
+
+    @Test(description = "Update single profile info")
+    public void updateSingleProfileInfo(){
+        UpdateFewInfo updateFewInfo = new UpdateFewInfo.Builder().mobileNumber("9731645040").build();
+        UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
+        Response response =  userProfileManagementService.updateFewInfo(updateFewInfo, token);
+        System.out.println(response.asPrettyString());
     }
 
 

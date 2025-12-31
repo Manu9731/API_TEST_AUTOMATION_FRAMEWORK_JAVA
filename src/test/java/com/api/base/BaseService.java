@@ -36,5 +36,9 @@ public class BaseService {
         return requestSpecification.contentType(ContentType.JSON).body(payload).put(endpoint);
     }
 
+    protected Response patchRequest(Object payload, String endpoint){
+        return requestSpecification.contentType(ContentType.JSON).body(payload).patch(endpoint);
+    }
+
 
 }
