@@ -36,9 +36,6 @@ jobs:
     - name: Execute Test 
       run: mvn clean test -Dsuite=UserManagement
 
-<<<<<<< HEAD
-
-=======
     - name: Upload a Build Artifact
       if: always()
       uses: actions/upload-artifact@v4
@@ -56,4 +53,4 @@ jobs:
         name: TestNG Results
         path: target/surefire-reports/junitreports/TEST-*.xml
         reporter: java-junit
->>>>>>> 66cc238afbb9cb7f705758c655e5aa790c46f2ae
+
